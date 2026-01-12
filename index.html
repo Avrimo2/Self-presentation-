@@ -1,46 +1,52 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>אברי אלוס – מסע בחיי</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PDF Presentation</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
-      color: #ffffff;
-    }
-    header {
-      padding: 1rem;
-      text-align: center;
-      background: #020617;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    iframe {
+      padding: 0;
+      height: 100%;
       width: 100%;
-      height: calc(100vh - 70px);
+      overflow: hidden;
+      background-color: #000; /* Black background for presentation */
+    }
+
+    iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Optional: force portrait mode on mobile (some browsers respect it) */
+    @media screen and (orientation: landscape) {
+      body::after {
+        content: "Please rotate your device to portrait mode.";
+        color: white;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        z-index: 9999;
+        text-align: center;
+        padding: 20px;
+      }
+      iframe {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    אברי אלוס – מסע בחיי<br />
-    <small>אל תחכה למחר כדי להתחיל</small>
-  </header>
-
-  <!--
-    PDF MODE (RECOMMENDED FOR COMMAND / OFFLINE-SAFE USE)
-    1. Place the PDF file in the same folder as this HTML file.
-    2. Rename it exactly to: presentation.pdf
-    OR change the src below to match the file name.
-  -->
-
-  <iframe
-    src="Self_AvriAlus.pdf"
-    allowfullscreen
-  ></iframe>
+  <!-- Replace 'presentation.pdf' with your PDF file path -->
+  <iframe src="Self_AvriAlus.pdf#view=FitH" allowfullscreen></iframe>
 </body>
 </html>
